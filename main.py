@@ -68,8 +68,19 @@ def _validate_inputs(width: int, height: int, length: int, mass: int) -> None:
         width, height, length, mass: Parameters to validate
         
     Raises:
+        TypeError: If any parameter is not an integer
         ValueError: If any parameter is non-positive
     """
+    # Check types at runtime
+    if not isinstance(width, int):
+        raise TypeError(f"width must be an integer, got {type(width).__name__}")
+    if not isinstance(height, int):
+        raise TypeError(f"height must be an integer, got {type(height).__name__}")
+    if not isinstance(length, int):
+        raise TypeError(f"length must be an integer, got {type(length).__name__}")
+    if not isinstance(mass, int):
+        raise TypeError(f"mass must be an integer, got {type(mass).__name__}")
+    
     # Check positive values
     if width <= 0:
         raise ValueError(f"width must be positive, got {width}")
@@ -94,7 +105,8 @@ def run_test_suite() -> None:
         (10, 10, 10, 5, "STANDARD", "Small standard package"),
         (50, 50, 50, 15, "STANDARD", "Medium standard package"),
         (100, 50, 20, 10, "STANDARD", "Large but not bulky standard package"),
-        (149, 149, 149, 19, "STANDARD", "Edge case: just under bulky and heavy thresholds"),
+        (149, 149, 149, 19, "SPECIAL", "Edge case: just under dimension threshold but bulky by volume"),
+        (99, 99, 99, 19, "STANDARD", "Edge case: just under all thresholds"),
         
         # BULKY packages (by volume)
         (100, 100, 100, 10, "SPECIAL", "Bulky by volume (1,000,000 cm³)"),
