@@ -72,13 +72,13 @@ def _validate_inputs(width: int, height: int, length: int, mass: int) -> None:
         ValueError: If any parameter is non-positive
     """
     # Check types at runtime
-    if not isinstance(width, int):
+    if not isinstance(width, int):  # type: ignore
         raise TypeError(f"width must be an integer, got {type(width).__name__}")
-    if not isinstance(height, int):
+    if not isinstance(height, int):  # type: ignore
         raise TypeError(f"height must be an integer, got {type(height).__name__}")
-    if not isinstance(length, int):
+    if not isinstance(length, int):  # type: ignore
         raise TypeError(f"length must be an integer, got {type(length).__name__}")
-    if not isinstance(mass, int):
+    if not isinstance(mass, int):  # type: ignore
         raise TypeError(f"mass must be an integer, got {type(mass).__name__}")
     
     # Check positive values
@@ -138,7 +138,10 @@ def run_test_suite() -> None:
         try:
             actual_result = sort(width, height, length, mass)
             volume = width * height * length
-            status = "✅ PASS" if actual_result == expected_result else "❌ FAIL"
+            if actual_result == expected_result:
+                status = "✅ PASS"
+            else:
+                status = "❌ FAIL"
             
             if actual_result == expected_result:
                 passed += 1
