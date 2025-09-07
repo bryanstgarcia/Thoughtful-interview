@@ -11,7 +11,7 @@ A robust Python 3.10 application that sorts packages into appropriate stacks bas
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/bryanstgarcia/Thoughtful-interview.git
    cd thoughtful
    ```
 
