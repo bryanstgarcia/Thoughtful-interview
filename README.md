@@ -1,6 +1,6 @@
-# Python App
+# Package Sorting System
 
-A simple Python application built with Python 3.10.
+A robust Python 3.10 application that sorts packages into appropriate stacks based on dimensions and mass. Features comprehensive testing, error handling, and modern Python practices.
 
 ## Requirements
 
@@ -54,7 +54,11 @@ A simple Python application built with Python 3.10.
 
 2. Run the application:
    ```bash
+   # Interactive demo mode (default)
    python main.py
+   
+   # Comprehensive test suite
+   python main.py --test
    ```
 
 3. Deactivate the virtual environment when done:
@@ -62,13 +66,46 @@ A simple Python application built with Python 3.10.
    deactivate
    ```
 
+### Running Modes
+
+#### Interactive Demo Mode
+The default mode runs a demonstration with sample packages:
+```bash
+python main.py
+```
+This shows how the sorting system works with various package types including:
+- Standard packages
+- Bulky packages (by volume and dimension)
+- Heavy packages
+- Rejected packages (both bulky and heavy)
+- Edge case packages
+
+#### Test Suite Mode
+Run the comprehensive test suite to verify all functionality:
+```bash
+python main.py --test
+```
+This includes:
+- **Functional Tests**: 15+ test cases covering all sorting scenarios
+- **Edge Case Tests**: Boundary conditions and threshold testing
+- **Error Handling Tests**: Invalid input validation
+- **Performance Verification**: Correct sorting logic validation
+
 ## Project Structure
 
 ```
 thoughtful/
 ├── main.py              # Main application file
-├── requirements.txt     # Dependencies (none required)
 ├── .python-version     # Python version specification (3.10.0)
 ├── venv/               # Virtual environment directory
 └── README.md           # This file
 ```
+
+## Features
+
+### Core Functionality
+- **Package Sorting Algorithm**: Categorizes packages into STANDARD, SPECIAL, or REJECTED stacks
+- **Robust Input Validation**: Handles edge cases and invalid inputs gracefully
+- **Comprehensive Error Handling**: Clear error messages for debugging
+
+
